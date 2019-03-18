@@ -1,0 +1,123 @@
+body{
+    font-family: 'Nunito';
+}
+
+h2{
+    font-size: 18px;
+    padding: 10px 20px;
+    color: #575ed8;
+}
+#time{
+    display: block;
+    text-align: right;
+}
+#mario-chat{
+    max-width: 500px;
+    margin: 40px;
+    border: 1px solid #ddd;
+    box-shadow: 1px 3px 5px rgba(0,0,0,0.05);
+    border-radius: 2px;
+}
+
+#link-box{
+    max-width: 400px;
+    margin-top: 40px;
+    margin-left: -60px;
+    border: 1px solid #ddd;
+    box-shadow: 1px 3px 5px rgba(0,0,0,0.05);
+    border-radius: 2px;
+    background-color: red;
+}
+sub {
+    text-align: right;
+}
+#chat-window{
+    height: 315px;
+    overflow: auto;
+    background: #f9f9f9;
+}
+#usersList{
+    height: 315px;
+    overflow: auto;
+    background: #f9f9f9;
+}
+#links-window{
+    height: 389px;
+    overflow: auto;
+    background: #f9f9f9;
+}
+
+#output p{
+    padding: 14px 0px;
+    margin: 0 20px;
+    border-bottom: 1px solid #e9e9e9;
+    color: #555;
+}
+
+#feedback p{
+    color: #aaa;
+    padding: 14px 0px;
+    margin: 0 20px;
+}
+#feedback1 p{
+    color: #aaa;
+    padding: 14px 0px;
+    margin: 0 20px;
+}
+
+#output strong{
+    color: #575ed8;
+}
+#output1 strong{
+    color: #575ed8;
+}
+
+label{
+    box-sizing: border-box;
+    display: block;
+    padding: 10px 20px;
+}
+#arrow{
+    width: 180px;
+    margin-left: -10px;
+    float:right;
+    position:relative;
+    z-index: 1;
+}
+#text1{
+    margin-top: 180px;
+    float:right;
+    position:relative;
+
+}
+#yuc{
+    margin-top: 20px;
+    width: 150px;
+}
+input{
+    padding: 10px 20px;
+    box-sizing: border-box;
+    background: #eee;
+    border: 0;
+    display: block;
+    width: 100%;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    font-family: Nunito;
+    font-size: 16px;
+}
+
+#handle{
+    background-color: #bae8ed;
+    height: 30px;
+}
+
+button{
+    background: #575ed8;
+    color: #fff;
+    font-size: 18px;
+    border: 0;
+    padding: 12px 0;
+    width: 100%;
+    border-radius: 0 0 2px 2px;
+}

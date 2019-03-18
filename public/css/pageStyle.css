@@ -1,0 +1,188 @@
+@import url(http://fonts.googleapis.com/earlyaccess/droidarabickufi.css);
+@import url('https://fonts.googleapis.com/css?family=Muli');
+
+body{
+  background-image: url('../img/spiration-light.png');
+  font-family: 'Muli', sans-serif;
+  height: 100%;
+}
+:lang(ar){
+  font-family: 'Droid Arabic Kufi', serif;
+  font-size: 15px;
+}
+
+h2:lang(ar){
+  font-size: 24px;
+}
+
+.nav>li>a:focus, .nav>li>a:hover{
+  background-color:   rgba(247, 262, 273, 1);
+}
+#time{
+    display: block;
+    text-align: right;
+    font-family: 'Muli', sans-serif;
+    font-size: 10px;
+}
+
+#content{
+  height:100vh;
+}
+
+/* Set black background color, white text and some padding */
+footer {
+  background-color: #555;
+  color: white;
+  padding: 10px;
+}
+
+@media (min-width: 768px) {
+  .navbar-nav.navbar-center {
+    position: absolute;
+    left: 50%;
+    transform: translatex(-50%);
+  }
+}
+
+.chatBox{
+    max-width: 500px;
+    margin: 10px;
+    border: 1px solid #ddd;
+    box-shadow: 1px 3px 5px rgba(0,0,0,0.05);
+    border-radius: 2px;
+}
+
+#chat-window{
+    height: 315px;
+    overflow: auto;
+    background: #f9f9f9;
+}
+
+/* messages */
+.output p{
+    padding: 14px 0px;
+    margin: 0 20px;
+    border-bottom: 1px solid #e9e9e9;
+    color: #555;
+    text-align: left;
+    font-family: 'Muli', sans-serif;
+    font-size: 16px
+}
+/* user name  */
+.output strong{
+    color: #286090;
+    font-family: 'Muli', sans-serif;
+}
+/* onlineUsersList */
+.outputOnlineUsersList p{
+    margin: 0 20px;
+    color: #555;
+    text-align: left;
+    font-family: 'Muli', sans-serif;
+    font-size: 15px
+}
+/* user name  */
+.outputOnlineUsersList strong{
+    color: #286090;
+    font-family: 'Muli', sans-serif;
+}
+
+#feedback p{
+    color: #aaa;
+    padding: 14px 0px;
+    margin: 0 20px;
+    font-family: 'Muli', sans-serif;
+}
+
+
+input{
+    padding: 10px 20px;
+    box-sizing: border-box;
+    background: #eee;
+    border: 0;
+    display: block;
+    width: 100%;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    font-size: 16px;
+    outline: none;
+}
+
+.handle{
+    background-color: #E1F5FE;
+    height: 30px;
+}
+
+.shareButton{
+    background: #337ab7;
+    color: #fff;
+    font-size: 18px;
+    border: 0;
+    padding: 12px 0;
+    width: 100%;
+    border-radius: 0 0 2px 2px;
+    outline: none;
+}
+.shareButton:hover{
+  background: #286090;
+}
+.shareButton:active{
+  background: #214f78;
+}
+.padding-0{
+    padding-right:0;
+    padding-left:0;
+}
+
+#yuc{
+    margin-top: 70px;
+    width: 70px;
+}
+#sessionName{
+  font-family: 'Muli', sans-serif;
+}
+
+
+/* The side navigation menu */
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1032; /* Stay on top */
+    top: 0; /* Stay at the top */
+    background-color: rgba(52, 152, 219, 0.6);
+    overflow-x: hidden; /* Disable horizontal d */
+    padding-top: 53px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+    right: 0;
+}
+
+/* The navigation menu links */
+.sidenav a {
+    text-decoration: none;
+    font-size: 25px;
+    color: black;
+    display: block;
+    transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    margin-left: 125px;
+    font-size: 36px;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#overlayDiv {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 1031;
+}

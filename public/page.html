@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <script type="text/javascript">
+
+      </script>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>YUC CIS Interface</title>
+      <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+     <script src="https://unpkg.com/sweetalert2@7.1.0/dist/sweetalert2.all.js"></script>
+
+<!-- Include a polyfill for ES6 Promises (optional) for IE11 and Android browser -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
+    <link href="styles.css" rel="stylesheet"/>
+  </head>
+<body>
+    <div id='arrBox' style="display: none">
+        <img src="arr.png" id='arrow' >
+        <h6 id='text1'>please click on the icon</h6>
+      </div>
+
+      <nav class="navbar navbar-light navbar-static-top" style="background-color: #e3f2fd;">
+           <a class="navbar-brand" id='title'>
+            <img src="https://pbs.twimg.com/profile_images/1184870884/logo_400x400.png" width="30" height="30" class="d-inline-block align-top" alt="">
+            YUC-CIS-Interface
+          </a>
+        <a href="/txt/messages.txt" download>
+            <button type="button" class="btn btn-primary" id="" style="width: 160px;margin-right: -200px">Download Messages</button>
+        </a>
+        <a href="/txt/links.txt" download>
+            <button type="button" class="btn btn-primary" id="" style="width: 160px; margin-right: -200px">Download Links</button>
+        </a>
+           <button type="button" class="btn btn-primary" onclick="printChats()" style="width: 160px;">Print Chats</button>
+        <a href="/">
+            <button type="button" class="btn btn-primary" id="disconnect" style="width: 40px;">X</button>
+        </a>
+        <a href="/">
+
+        </a>
+      </nav>
+
+
+      <div class="col-md-12 text-center">
+        <img src="https://pbs.twimg.com/profile_images/1184870884/logo_400x400.png" id='yuc'>
+      </div>
+      <div class="container">
+        <div class="row" style="margin-top:-160px;">
+            <div class="col-sm-5 col-md-5 col-lg-5">
+                <div id = "mario-chat">
+                    <h6>Who is online</h6>
+                    <div  id = "usersList"
+                          style="display: flex; flex-direction: column-reverse; height: 60px;">
+                        <div id ="output2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-7 col-md-7 col-lg-7">
+                <div id = "mario-chat">
+                    <div  id = "chat-window"
+                          style="display: flex; flex-direction: column-reverse;">
+                        <div id ="output"></div>
+                        <div id = "feedback"></div>
+                    </div>
+
+                    <input id = "handle" type = "text" placeholder = "Handle" disabled/>
+                    <input id = "message" type = "text" placeholder="Message"  onkeydown = "if (event.keyCode == 13)
+                        document.getElementById('send').click()"  />
+                    <button id = "send" >Send</button>
+                </div>
+            </div>
+             <div class="col-sm-5 col-md-5 col-lg-5">
+                <div id = "link-box">
+                    <div  id = "links-window"
+                          style="display: flex; flex-direction: column-reverse;">
+                        <div id ="output1"></div>
+                        <div id = "feedback1"></div>
+                    </div>
+                    <button onclick="arrBox()" >Share Results</button>
+                </div>
+            </div>
+
+        </div>
+      </div>
+    <script src = "/chat.js"> </script>
+  </body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>YUC-CIS-Interface</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap dependencies  -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <!-- Bootstrap toggle dependencies -->
+  <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+  <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+  <!-- Socket.io dependencies -->
+  <script src = "https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+  <!-- User defined css -->
+  <link rel="stylesheet" href="css/pageStyle.css">
+</head>
+<body>
+    <!-- Side Navbar  -->
+    <div id="overlayDiv"></div>
+    <div id="mySidenav" class="sidenav">
+      <hr style="margin-top:0px;">
+      <div class="container" style="color:white">
+        <br>
+        <h4 style="text-align:left;margin-left:30px;" id="settingsSidebar"></h4>
+        <br>
+        <span style="color:white; margin:10px" id="languageOption"></span><input id='lang' style="margin:10px"type="checkbox" data-toggle="toggle" data-on="English" data-off='العربية' checked data-size="" data-offstyle="info"><br>
+        <span style="color:white;margin:10px" id="setupButton"></span> <span class="btn btn-primary"style="margin:10px" id="setupButtonText"></span>
+      </div>
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    </div>
+
+    <!-- Navabar  -->
+    <nav class="navbar navbar-primary bg-faded navbar-fixed-top" style="background-color:#E1F5FE">
+      <div class="container-fluid">
+        <div class="navbar-header"> <!--When collapsed-->
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar" style="background-color:black"></span>
+            <span class="icon-bar" style="background-color:black"></span>
+            <span class="icon-bar" style="background-color:black"></span></button>
+            <a class="navbar-brand">
+              <img src="https://pbs.twimg.com/profile_images/1184870884/logo_400x400.png" width="30" height="30"  style="margin-top:-5px"alt="YUC-CIS-Interface">
+            </a>
+            <span class="navbar-brand" style="margin-left:-23px;margin-top:0px; font-size:16px" id='sessionName'></span>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar"> <!--When NOT collapsed-->
+          <ul class="nav navbar-nav navbar-center">
+            <li><p class="navbar-btn" style="margin-top:11px; margin-right:6px;"><a class="btn btn-primary" id="print" onclick="validateLinks(this)"></a></li>
+            <li><p class="navbar-btn" style="margin-top:11px; margin-right:6px;"><a class="btn btn-primary"id="downloadMessages" onclick="validateLinks(this)"></a></li>
+            <li><p class="navbar-btn" style="margin-top:11px; margin-right:6px;"><a class="btn btn-primary"id="downloadLinks" onclick="validateLinks(this)"></a></li>
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right" style="padding-right:0">
+            <li><p class="navbar-btn" style="margin-top:11px; margin-right:6px;"><a class="btn btn-primary"id="options" onclick="openNav()"></a></li>
+            <li><p class="navbar-btn" style="margin:7px"><a class="btn btn-danger" id="exitButton" style="margin-top:3px">&#10005;</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page column style -->
+    <div id="content" class="container-fluid text-center">
+
+      <!-- Two rows one for title, logo, and 'whoIsOnline' box -->
+      <div class="row">
+        <div class="col-xs-1"></div>
+        <div class="col-xs-5 padding-0">
+          <div class="chatBox" style="margin-top:70px">
+            <input id ="whoIsOnlineText" class="handle" type = "text" disabled style="text-align:center"/>
+            <div  id = "chat-window" style="height:70px" class="scrollable">
+                <div id ="onlineUsersList" class="outputOnlineUsersList"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-5">
+          <img src="https://pbs.twimg.com/profile_images/1184870884/logo_400x400.png" id='yuc'>
+          <h2 id="title" style="margin-top:5px"></h2>
+        </div>
+        <div class="col-xs-1"></div>
+      </div>
+
+      <br>
+
+      <!-- Other for chatboxes  -->
+      <div class="row">
+          <div class="col-xs-1"></div>
+          <div class="col-xs-5 padding-0"> <!-- messages box -->
+            <div class="chatBox">
+                <div id="chat-window" style="display: flex; flex-direction: column-reverse;" class="scrollable">
+                  <!-- output area -->
+                  <div id="feedback"></div>
+                  <div id="messagesOutput" class="output"></div>
+                </div>
+
+                <!-- input area -->
+                <input id = "handle" class="handle" type = "text" disabled/>
+                <input id = "messageInput" type = "text" onkeydown = "if (event.keyCode == 13)
+                    document.getElementById('sendMessageButton').click()"  />
+                <button class="shareButton" id='sendMessageButton'></button>
+            </div>
+          </div>
+          <div class="col-xs-5 padding-0"> <!-- links box -->
+            <div class="chatBox">
+                <div  id = "chat-window" style="display: flex; flex-direction: column-reverse;height:388px;">
+                    <div id ="linksOutput"></div>
+                </div>
+                <button class="shareButton" id='shareLinksButton'></button>
+            </div>
+          </div>
+          <div class="col-xs-1"></div>
+      </div>
+    </div>
+    <br>
+    <br>
+    <!-- footer section -->
+    <footer id="footer1" class="footer container-fluid text-center">
+      <p id="footer"></p>
+    </footer>
+
+    <!-- chat and others scripts -->
+    <script src="js/chat.js"></script>
+
+    <!-- real_time scripts -->
+    <script src="js/real_time.js"></script>
+
+    <!-- multi-lang script & sidenav scripts-->
+    <script src="js/lang.js"></script>
+    <iframe  id="txt" name="txt" style="display:none"></iframe>
+    <script></script>
+</body>
+</html>

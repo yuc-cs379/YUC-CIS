@@ -1,0 +1,19 @@
+{
+  "name": "chatapp",
+  "version": "1.0.0",
+  "description": "Chat application practice",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Cameron Bennett",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.15.3",
+    "socketio": "^1.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
+}
