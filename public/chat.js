@@ -4,6 +4,7 @@ var socket = io.connect('ec2-54-202-56-225.us-west-2.compute.amazonaws.com:3000'
 //var socket = io.connect('localhost:3000',{'sync disconnect on unload': true });
 socket.on('check', function(message) {
     console.log(message);
+    console.log('hello word')
 });
 
 function getRoomName(){
