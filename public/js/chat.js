@@ -18,18 +18,22 @@ $( '.scrollable' ).on( 'mousewheel DOMMouseScroll', function ( e ) {
 ///////// printing
 function validateLinks(tag){
   var messages= $.get( "txt/messages.txt", ()=>{messagesBoolean =true;}).fail(()=>{messagesBoolean=false;});
-  var links= $.get( "txt/link.txt", ()=>{linksBoolean =true;}).fail(()=>{linksBoolean=false;});
+  var links= $.get( "txt/links.txt", ()=>{linksBoolean =true;}).fail(()=>{linksBoolean=false;});
 
   if(tag.id=='downloadMessages'){
     $.when(messages).done(function() {
-      alert('true');
+      // alert('TODO download the file');
+      //console.log();
+      download('Messages',messages.responseText)
     }).fail(()=>{
       alert('false');
     });
   }
   if(tag.id=='downloadLinks'){
     $.when(links).done(function() {
-      alert('true');
+      // alert('TODO download the file');
+      // console.log(links);
+      download('Links',links.responseText)
     }).fail(()=>{
       alert('false');
     });
@@ -52,4 +56,17 @@ function print(){
     window.frames["txt"].focus();
     window.frames["txt"].print();
   });
+}
+
+function download(filename, text) {
+  var element = document.createElement('a');
+  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+  element.setAttribute('download', filename);
+
+  element.style.display = 'none';
+  document.body.appendChild(element);
+
+  element.click();
+
+  document.body.removeChild(element);
 }

@@ -1,5 +1,5 @@
 //Make connection
-var socket = io.connect('ec2-54-202-56-225.us-west-2.compute.amazonaws.com:3000',{'sync disconnect on unload': true });
+var socket = io.connect('localhost:3000',{'sync disconnect on unload': true });
 
 //var socket = io.connect('localhost:3000',{'sync disconnect on unload': true });
 socket.on('check', function(message) {
@@ -72,6 +72,13 @@ myDate = new Date();
 var time = myDate.getHours() + ":" + myDate.getMinutes() + ":" + myDate.getSeconds();
 
 socket.on('chat', function(data){
+  console.log(data);
+  feedback.innerHTML = ""
+  output.innerHTML += '<p><strong>'+data.handle +
+                      ':</strong>' + data.message +"<sub id = 'time'>"+time+'</sub>' +'</p>' ;
+});
+
+socket.on('links', function(data){
   console.log(data);
   feedback.innerHTML = ""
   output.innerHTML += '<p><strong>'+data.handle +
