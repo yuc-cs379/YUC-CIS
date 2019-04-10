@@ -2,7 +2,8 @@
 //Make connection
 
 //var socket = io.connect('ec2-54-202-56-225.us-west-2.compute.amazonaws.com:3000');
-var socket = io.connect('http://localhost:3000');
+var socket = io.connect('http://206.189.161.123:3000');
+// var socket = io.connect('http://localhost:3000');
 
 //Query DOM
 var sessionName = document.getElementById('sessionName'),

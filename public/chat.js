@@ -1,5 +1,5 @@
 //Make connection
-var socket = io.connect('localhost:3000',{'sync disconnect on unload': true });
+var socket = io.connect('http://206.189.161.123:3000',{'sync disconnect on unload': true });
 
 //var socket = io.connect('localhost:3000',{'sync disconnect on unload': true });
 socket.on('check', function(message) {
